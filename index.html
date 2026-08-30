@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+```
 <title>Anneciel</title>
 
 <!-- Favicon -->
@@ -24,7 +25,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 35px 20px;
+        padding: 30px 20px;
     }
 
     .container {
@@ -43,7 +44,6 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        display: block;
     }
 
     h1 {
@@ -53,12 +53,62 @@
     }
 
     .description {
-        margin: 10px 0 30px;
+        margin: 10px 0 25px;
         color: #666;
         font-size: 15px;
         line-height: 1.5;
     }
 
+    /* MESSAGE INSTAGRAM */
+    #instagramWarning {
+        display: none;
+        background: white;
+        border-radius: 18px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+    }
+
+    #instagramWarning .warningTitle {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    #instagramWarning p {
+        margin: 8px 0;
+        color: #555;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .steps {
+        text-align: left;
+        margin: 16px 0;
+        padding-left: 22px;
+        color: #333;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .browserButton {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        border-radius: 13px;
+        background: #111;
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .browserButton:active {
+        transform: scale(0.97);
+    }
+
+    /* BOUTONS */
     .links {
         display: flex;
         flex-direction: column;
@@ -78,8 +128,7 @@
         font-size: 16px;
         font-weight: bold;
         box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-        transition: transform 0.15s, box-shadow 0.15s;
-        cursor: pointer;
+        transition: transform 0.15s;
     }
 
     .link:active {
@@ -91,46 +140,50 @@
         font-size: 21px;
     }
 
-    /* Message Instagram */
-    #instagramMessage {
-        display: none;
-        margin-bottom: 20px;
-        padding: 16px;
-        border-radius: 16px;
-        background: white;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    }
-
-    #instagramMessage strong {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 16px;
-    }
-
-    #instagramMessage p {
-        margin: 0 0 14px;
-        color: #666;
-        font-size: 13px;
-        line-height: 1.4;
-    }
-
-    .browserButton {
-        display: block;
-        padding: 13px;
-        border-radius: 12px;
-        background: #111;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
     .footer {
         margin-top: 30px;
         color: #999;
         font-size: 12px;
     }
+
+    /* PAGE D'INSTRUCTION */
+    #browserPage {
+        display: none;
+    }
+
+    .browserCard {
+        background: white;
+        border-radius: 20px;
+        padding: 25px 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+    }
+
+    .browserIcon {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+
+    .browserCard h2 {
+        margin: 5px 0 12px;
+        font-size: 21px;
+    }
+
+    .browserCard p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .tip {
+        margin-top: 18px;
+        padding: 14px;
+        border-radius: 12px;
+        background: #f5f5f5;
+        font-size: 13px;
+        line-height: 1.5;
+    }
 </style>
+```
 
 </head>
 
@@ -138,39 +191,51 @@
 
 <div class="container">
 
+```
 <!-- LOGO -->
 <div class="logo">
     <img src="Anneciel Logo Web.png" alt="Logo Anneciel">
 </div>
 
-<!-- NOM -->
 <h1>Anneciel</h1>
 
 <p class="description">
     Association étudiante de Polytech Annecy-Chambéry
 </p>
 
-<!-- MESSAGE SI INSTAGRAM -->
-<div id="instagramMessage">
 
-    <strong>Vous êtes sur Instagram</strong>
+<!-- MESSAGE INSTAGRAM -->
+<div id="instagramWarning">
+
+    <div class="warningTitle">
+        🌐 Vous êtes sur Instagram
+    </div>
 
     <p>
-        Pour ouvrir les liens correctement dans votre navigateur,
-        appuyez sur le bouton ci-dessous.
+        Pour ouvrir les inscriptions et la présentation correctement,
+        nous vous recommandons d'ouvrir cette page dans votre navigateur.
     </p>
 
-    <a
-        class="browserButton"
-        href="https://anneciel-usmb.github.io/anneciel/"
-        target="_blank"
-        rel="noopener noreferrer">
+    <div id="androidInstructions">
 
-        🌐 Ouvrir dans le navigateur
+        <ol class="steps">
+            <li>Appuyez sur <strong>⋮</strong> en haut à droite.</li>
+            <li>Sélectionnez <strong>Ouvrir dans le navigateur</strong>.</li>
+        </ol>
 
-    </a>
+    </div>
+
+    <div id="iphoneInstructions">
+
+        <ol class="steps">
+            <li>Appuyez sur <strong>⋯</strong> ou le bouton de partage.</li>
+            <li>Sélectionnez <strong>Ouvrir dans le navigateur</strong> ou <strong>Ouvrir dans Safari</strong>.</li>
+        </ol>
+
+    </div>
 
 </div>
+
 
 <!-- BOUTONS -->
 <div class="links">
@@ -185,6 +250,7 @@
 
     </a>
 
+
     <!-- PRÉSENTATION -->
     <a
         class="link"
@@ -194,6 +260,7 @@
         Présentation Anneciel
 
     </a>
+
 
     <!-- INSTAGRAM -->
     <a
@@ -207,24 +274,52 @@
 
 </div>
 
+
 <div class="footer">
-    © Anneciel 2
+    © Anneciel
 </div>
+```
 
 </div>
 
 <script>
 
-    // Détection du navigateur intégré Instagram
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
 
+    // Détection Instagram
     const isInstagram =
-        userAgent.includes("Instagram") ||
-        userAgent.includes("FBAN") ||
-        userAgent.includes("FBAV");
+        ua.includes("Instagram") ||
+        ua.includes("FBAN") ||
+        ua.includes("FBAV");
+
+    // Détection Android
+    const isAndroid = /Android/i.test(ua);
+
+    // Détection iPhone / iPad
+    const isIOS =
+        /iPhone|iPad|iPod/i.test(ua) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
 
     if (isInstagram) {
-        document.getElementById("instagramMessage").style.display = "block";
+
+        document.getElementById("instagramWarning").style.display = "block";
+
+        if (isAndroid) {
+
+            document.getElementById("iphoneInstructions").style.display = "none";
+
+        } else if (isIOS) {
+
+            document.getElementById("androidInstructions").style.display = "none";
+
+        } else {
+
+            document.getElementById("androidInstructions").style.display = "none";
+            document.getElementById("iphoneInstructions").style.display = "none";
+
+        }
+
     }
 
 </script>
