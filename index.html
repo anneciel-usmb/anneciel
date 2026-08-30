@@ -1,99 +1,122 @@
-```html
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Inscription Anneciel</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+```
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #e8f6ff, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 420px;
-            background: white;
-            border-radius: 20px;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        }
+    .card {
+        width: 100%;
+        max-width: 420px;
+        background: white;
+        border-radius: 24px;
+        padding: 35px 25px;
+        text-align: center;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+    }
 
-        h1 {
-            margin-top: 0;
-            font-size: 28px;
-        }
+    .logo {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
 
-        p {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
+    h1 {
+        margin: 0 0 12px;
+        font-size: 28px;
+        color: #111;
+    }
 
-        .button {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            background: #000;
-            color: white;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-        }
+    p {
+        margin: 0 0 28px;
+        color: #666;
+        font-size: 16px;
+        line-height: 1.5;
+    }
 
-        .button:active {
-            transform: scale(0.98);
-        }
+    .button {
+        display: block;
+        width: 100%;
+        padding: 17px 20px;
+        border-radius: 14px;
+        background: #111;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: bold;
+        transition: transform 0.15s;
+    }
 
-        .info {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #999;
-        }
-    </style>
+    .button:active {
+        transform: scale(0.97);
+    }
+
+    .note {
+        margin-top: 18px;
+        font-size: 13px;
+        color: #999;
+        line-height: 1.4;
+    }
+</style>
+```
+
 </head>
 
 <body>
 
-    <div class="container">
+```
+<div class="card">
 
-        <h1>Inscription Anneciel</h1>
-
-        <p>
-            Clique sur le bouton ci-dessous pour accéder au formulaire d'inscription.
-        </p>
-
-        <a
-            class="button"
-            href="https://docs.google.com/forms/d/1XjCSVkBkY0Sz0ya7bENIT0Yz8oHk_K9AjLOkpabSZYs/viewform?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
-            target="_blank"
-            rel="noopener noreferrer">
-            Ouvrir le formulaire
-        </a>
-
-        <div class="info">
-            Le formulaire s'ouvrira dans une nouvelle fenêtre.
-        </div>
-
+    <div class="logo">
+        A
     </div>
+
+    <h1>Inscription Anneciel</h1>
+
+    <p>
+        Clique sur le bouton ci-dessous pour accéder au formulaire d'inscription.
+    </p>
+
+    <a
+        class="button"
+        href="https://docs.google.com/forms/d/1XjCSVkBkY0Sz0ya7bENIT0Yz8oHk_K9AjLOkpabSZYs/viewform"
+        target="_blank"
+        rel="noopener noreferrer">
+        Ouvrir le formulaire
+    </a>
+
+    <div class="note">
+        Si le formulaire reste dans Instagram, utilise le menu ⋯
+        puis choisis « Ouvrir dans le navigateur ».
+    </div>
+
+</div>
+```
 
 </body>
 </html>
-```
