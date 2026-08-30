@@ -1,1 +1,141 @@
+<!DOCTYPE html>
 
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Anneciel</title>
+
+<script>
+    const destination = "https://anneciel-usmb.github.io/anneciel/";
+
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    const isInstagram =
+        ua.includes("Instagram") ||
+        ua.includes("FBAN") ||
+        ua.includes("FBAV");
+
+    const isAndroid = /Android/i.test(ua);
+
+    const isIOS =
+        /iPhone|iPad|iPod/i.test(ua) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+
+    function redirect() {
+
+        /*
+         * ANDROID
+         *
+         * On demande à Android d'ouvrir Chrome.
+         */
+
+        if (isAndroid) {
+
+            const intent =
+                "intent://anneciel-usmb.github.io/anneciel/" +
+                "#Intent;" +
+                "scheme=https;" +
+                "package=com.android.chrome;" +
+                "S.browser_fallback_url=" +
+                encodeURIComponent(destination) +
+                ";end";
+
+            window.location.href = intent;
+
+            setTimeout(function() {
+                window.location.href = destination;
+            }, 1500);
+
+            return;
+        }
+
+
+        /*
+         * iPHONE / iPAD
+         *
+         * iOS ne permet pas de forcer Safari.
+         * On ouvre donc normalement la destination.
+         */
+
+        window.location.href = destination;
+    }
+
+
+    window.onload = function() {
+
+        redirect();
+
+    };
+</script>
+
+<style>
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f5f5;
+        text-align: center;
+    }
+
+    .box {
+        background: white;
+        padding: 30px;
+        margin: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+        max-width: 380px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        color: #666;
+        line-height: 1.5;
+    }
+
+    a {
+        display: block;
+        margin-top: 20px;
+        padding: 15px;
+        background: #111;
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: bold;
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<div class="box">
+
+    <h1>Ouverture d'Anneciel...</h1>
+
+    <p>
+        Vous allez être redirigé vers la page Anneciel.
+    </p>
+
+    <a href="https://anneciel-usmb.github.io/anneciel/">
+        Continuer
+    </a>
+
+</div>
+
+
+</body>
+</html>
