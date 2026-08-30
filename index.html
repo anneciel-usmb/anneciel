@@ -7,8 +7,7 @@
 
 <title>Anneciel</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="Anneciel Favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="Anneciel Favicon.png">
 <link rel="apple-touch-icon" href="Anneciel Favicon.png">
 
 <style>
@@ -58,56 +57,6 @@
         line-height: 1.5;
     }
 
-    /* MESSAGE INSTAGRAM */
-    #instagramWarning {
-        display: none;
-        background: white;
-        border-radius: 18px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-    }
-
-    #instagramWarning .warningTitle {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    #instagramWarning p {
-        margin: 8px 0;
-        color: #555;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    .steps {
-        text-align: left;
-        margin: 16px 0;
-        padding-left: 22px;
-        color: #333;
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .browserButton {
-        display: block;
-        width: 100%;
-        padding: 15px;
-        border-radius: 13px;
-        background: #111;
-        color: white;
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: bold;
-        margin-top: 15px;
-    }
-
-    .browserButton:active {
-        transform: scale(0.97);
-    }
-
-    /* BOUTONS */
     .links {
         display: flex;
         flex-direction: column;
@@ -127,6 +76,7 @@
         font-size: 16px;
         font-weight: bold;
         box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        cursor: pointer;
         transition: transform 0.15s;
     }
 
@@ -139,47 +89,69 @@
         font-size: 21px;
     }
 
-    .footer {
-        margin-top: 30px;
-        color: #999;
-        font-size: 12px;
-    }
-
-    /* PAGE D'INSTRUCTION */
-    #browserPage {
+    /* Fenêtre de sortie */
+    #externalBrowser {
         display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
     }
 
-    .browserCard {
+    .browserBox {
+        width: 100%;
+        max-width: 380px;
         background: white;
-        border-radius: 20px;
-        padding: 25px 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+        border-radius: 22px;
+        padding: 28px 22px;
+        text-align: center;
     }
 
-    .browserIcon {
+    .browserBox .bigIcon {
         font-size: 45px;
         margin-bottom: 10px;
     }
 
-    .browserCard h2 {
+    .browserBox h2 {
         margin: 5px 0 12px;
         font-size: 21px;
     }
 
-    .browserCard p {
+    .browserBox p {
         color: #666;
         font-size: 14px;
         line-height: 1.5;
     }
 
-    .tip {
+    .openButton {
+        display: block;
         margin-top: 18px;
-        padding: 14px;
-        border-radius: 12px;
-        background: #f5f5f5;
-        font-size: 13px;
-        line-height: 1.5;
+        padding: 15px;
+        border-radius: 13px;
+        background: #111;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .closeButton {
+        display: block;
+        margin-top: 12px;
+        padding: 12px;
+        color: #777;
+        background: none;
+        border: none;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .footer {
+        margin-top: 30px;
+        color: #999;
+        font-size: 12px;
     }
 </style>
 
@@ -189,7 +161,6 @@
 
 <div class="container">
 
-<!-- LOGO -->
 <div class="logo">
     <img src="Anneciel Logo Web.png" alt="Logo Anneciel">
 </div>
@@ -200,47 +171,13 @@
     Association étudiante de Polytech Annecy-Chambéry
 </p>
 
-
-<!-- MESSAGE INSTAGRAM -->
-<div id="instagramWarning">
-
-    <div class="warningTitle">
-        🌐 Vous êtes sur Instagram
-    </div>
-
-    <p>
-        Pour ouvrir les inscriptions et la présentation correctement,
-        nous vous recommandons d'ouvrir cette page dans votre navigateur.
-    </p>
-
-    <div id="androidInstructions">
-
-        <ol class="steps">
-            <li>Appuyez sur <strong>⋮</strong> en haut à droite.</li>
-            <li>Sélectionnez <strong>Ouvrir dans le navigateur</strong>.</li>
-        </ol>
-
-    </div>
-
-    <div id="iphoneInstructions">
-
-        <ol class="steps">
-            <li>Appuyez sur <strong>⋯</strong> ou le bouton de partage.</li>
-            <li>Sélectionnez <strong>Ouvrir dans le navigateur</strong> ou <strong>Ouvrir dans Safari</strong>.</li>
-        </ol>
-
-    </div>
-
-</div>
-
-
-<!-- BOUTONS -->
 <div class="links">
 
     <!-- INSCRIPTION -->
     <a
         class="link"
-        href="https://docs.google.com/forms/d/1XjCSVkBkY0Sz0ya7bENIT0Yz8oHk_K9AjLOkpabSZYs/viewform">
+        href="https://docs.google.com/forms/d/1XjCSVkBkY0Sz0ya7bENIT0Yz8oHk_K9AjLOkpabSZYs/viewform"
+        onclick="openExternal(event, this.href)">
 
         <span class="icon">📝</span>
         Inscription adhérents
@@ -251,7 +188,8 @@
     <!-- PRÉSENTATION -->
     <a
         class="link"
-        href="https://canva.link/nymqvmemnlndk6r">
+        href="https://canva.link/nymqvmemnlndk6r"
+        onclick="openExternal(event, this.href)">
 
         <span class="icon">📊</span>
         Présentation Anneciel
@@ -262,7 +200,8 @@
     <!-- INSTAGRAM -->
     <a
         class="link"
-        href="https://www.instagram.com/anneciel_polytech/">
+        href="https://www.instagram.com/anneciel_polytech/"
+        onclick="openExternal(event, this.href)">
 
         <span class="icon">📸</span>
         Instagram Anneciel
@@ -271,52 +210,141 @@
 
 </div>
 
-
 <div class="footer">
     © Anneciel
 </div>
 
 </div>
 
+<!-- FENÊTRE NAVIGATEUR EXTERNE -->
+
+<div id="externalBrowser">
+
+<div class="browserBox">
+
+    <div class="bigIcon">🌐</div>
+
+    <h2>Ouvrir dans le navigateur</h2>
+
+    <p>
+        Pour accéder correctement à ce lien,
+        ouvre-le dans Chrome ou Safari.
+    </p>
+
+    <a
+        id="externalButton"
+        class="openButton"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Ouvrir dans le navigateur
+
+    </a>
+
+    <button
+        class="closeButton"
+        onclick="closeBrowserBox()">
+
+        Retour
+
+    </button>
+
+</div>
+
+</div>
+
 <script>
+
+function isInstagram() {
 
     const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-    // Détection Instagram
-    const isInstagram =
+    return (
         ua.includes("Instagram") ||
         ua.includes("FBAN") ||
-        ua.includes("FBAV");
-
-    // Détection Android
-    const isAndroid = /Android/i.test(ua);
-
-    // Détection iPhone / iPad
-    const isIOS =
-        /iPhone|iPad|iPod/i.test(ua) ||
-        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        ua.includes("FBAV")
+    );
+}
 
 
-    if (isInstagram) {
+function isAndroid() {
 
-        document.getElementById("instagramWarning").style.display = "block";
+    return /Android/i.test(navigator.userAgent);
 
-        if (isAndroid) {
+}
 
-            document.getElementById("iphoneInstructions").style.display = "none";
 
-        } else if (isIOS) {
+function isIOS() {
 
-            document.getElementById("androidInstructions").style.display = "none";
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-        } else {
+}
 
-            document.getElementById("androidInstructions").style.display = "none";
-            document.getElementById("iphoneInstructions").style.display = "none";
+
+function openExternal(event, url) {
+
+    if (!isInstagram()) {
+        return;
+    }
+
+    event.preventDefault();
+
+    /*
+     * ANDROID
+     *
+     * On tente d'utiliser le système Android
+     * pour ouvrir Chrome à l'extérieur d'Instagram.
+     */
+
+    if (isAndroid()) {
+
+        try {
+
+            const parsed = new URL(url);
+
+            const intentUrl =
+                "intent://" +
+                parsed.host +
+                parsed.pathname +
+                parsed.search +
+                "#Intent;" +
+                "scheme=https;" +
+                "package=com.android.chrome;" +
+                "end";
+
+            window.location.href = intentUrl;
+
+            return;
+
+        } catch (e) {
+
+            console.log("Intent Android impossible");
 
         }
 
     }
+
+
+    /*
+     * IPHONE / IPAD
+     *
+     * iOS ne permet pas de forcer Safari depuis
+     * le navigateur intégré Instagram.
+     */
+
+    document.getElementById("externalButton").href = url;
+
+    document.getElementById("externalBrowser").style.display = "flex";
+
+}
+
+
+function closeBrowserBox() {
+
+    document.getElementById("externalBrowser").style.display = "none";
+
+}
 
 </script>
 
