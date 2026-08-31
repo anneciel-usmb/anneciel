@@ -8,11 +8,33 @@
 
 <title>Anneciel</title>
 
+<!-- Police Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="Anneciel Favicon.png">
 <link rel="apple-touch-icon" href="Anneciel Favicon.png">
 
 <style>
+
+    /* =========================================
+       POLICE EXTENDA 30 DECA
+       ========================================= */
+
+    @font-face {
+        font-family: 'Extenda 30 Deca';
+        src: url('Extenda-30-Deca.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+    /* =========================================
+       RÉGLAGES GÉNÉRAUX
+       ========================================= */
+
     * {
         box-sizing: border-box;
     }
@@ -20,13 +42,22 @@
     body {
         margin: 0;
         min-height: 100vh;
-        font-family: Arial, Helvetica, sans-serif;
-        background: linear-gradient(135deg, #e9f7ff, #ffffff);
+
+        font-family: 'Poppins', sans-serif;
+
+        background: #fad5ff;
+
         display: flex;
         justify-content: center;
         align-items: flex-start;
+
         padding: 30px 20px;
     }
+
+
+    /* =========================================
+       CONTENEUR
+       ========================================= */
 
     .container {
         width: 100%;
@@ -34,154 +65,228 @@
         text-align: center;
     }
 
+
+    /* =========================================
+       LOGO
+       ========================================= */
+
     .logo {
         width: 120px;
         height: 120px;
+
         margin: 0 auto 18px;
     }
 
     .logo img {
         width: 100%;
         height: 100%;
+
         object-fit: contain;
+
+        display: block;
     }
+
+
+    /* =========================================
+       TITRE ANNECIEL
+       ========================================= */
 
     h1 {
         margin: 0;
-        font-size: 30px;
-        color: #111;
+
+        font-family: 'Extenda 30 Deca', sans-serif;
+
+        font-size: 42px;
+
+        font-weight: normal;
+
+        color: #d14288;
+
+        letter-spacing: 1px;
     }
+
+
+    /* =========================================
+       DESCRIPTION
+       ========================================= */
 
     .description {
-        margin: 10px 0 25px;
-        color: #666;
+        margin: 10px 0 30px;
+
+        font-family: 'Poppins', sans-serif;
+
+        color: #d14288;
+
         font-size: 15px;
+
         line-height: 1.5;
+
+        font-weight: 500;
     }
 
-    /* MESSAGE INSTAGRAM */
-    #instagramWarning {
-        display: none;
-        background: white;
-        border-radius: 18px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-    }
 
-    #instagramWarning .warningTitle {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+    /* =========================================
+       BOUTONS
+       ========================================= */
 
-    #instagramWarning p {
-        margin: 8px 0;
-        color: #555;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    .steps {
-        text-align: left;
-        margin: 16px 0;
-        padding-left: 22px;
-        color: #333;
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .browserButton {
-        display: block;
-        width: 100%;
-        padding: 15px;
-        border-radius: 13px;
-        background: #111;
-        color: white;
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: bold;
-        margin-top: 15px;
-    }
-
-    .browserButton:active {
-        transform: scale(0.97);
-    }
-
-    /* BOUTONS */
     .links {
         display: flex;
         flex-direction: column;
+
         gap: 14px;
     }
 
     .link {
         display: flex;
+
         align-items: center;
         justify-content: center;
+
         min-height: 58px;
+
         padding: 15px 20px;
+
         border-radius: 16px;
-        background: white;
-        color: #111;
+
+        background: #d14288;
+
+        color: white;
+
         text-decoration: none;
+
+        font-family: 'Poppins', sans-serif;
+
         font-size: 16px;
-        font-weight: bold;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-        transition: transform 0.15s;
+
+        font-weight: 600;
+
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+        cursor: pointer;
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
     }
+
+
+    /* Grossissement au survol PC */
+
+    @media (hover: hover) {
+
+        .link:hover {
+
+            transform: scale(1.035);
+
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+    }
+
+
+    /* Effet au clic */
 
     .link:active {
+
         transform: scale(0.97);
+
     }
+
+
+    /* =========================================
+       ICÔNES
+       ========================================= */
 
     .icon {
+
         margin-right: 10px;
+
         font-size: 21px;
+
     }
+
+
+    /* =========================================
+       MESSAGE INSTAGRAM
+       ========================================= */
+
+    #instagramWarning {
+
+        display: none;
+
+        background: #d14288;
+
+        border-radius: 18px;
+
+        padding: 20px;
+
+        margin-bottom: 20px;
+
+        color: white;
+
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    #instagramWarning .warningTitle {
+
+        font-size: 18px;
+
+        font-weight: 700;
+
+        margin-bottom: 10px;
+
+    }
+
+    #instagramWarning p {
+
+        margin: 8px 0;
+
+        color: white;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+
+    }
+
+    .steps {
+
+        text-align: left;
+
+        margin: 16px 0;
+
+        padding-left: 22px;
+
+        color: white;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+    }
+
+
+    /* =========================================
+       FOOTER
+       ========================================= */
 
     .footer {
+
         margin-top: 30px;
-        color: #999;
+
+        color: #d14288;
+
+        font-family: 'Poppins', sans-serif;
+
         font-size: 12px;
+
+        font-weight: 500;
+
     }
 
-    /* PAGE D'INSTRUCTION */
-    #browserPage {
-        display: none;
-    }
-
-    .browserCard {
-        background: white;
-        border-radius: 20px;
-        padding: 25px 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-    }
-
-    .browserIcon {
-        font-size: 45px;
-        margin-bottom: 10px;
-    }
-
-    .browserCard h2 {
-        margin: 5px 0 12px;
-        font-size: 21px;
-    }
-
-    .browserCard p {
-        color: #666;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    .tip {
-        margin-top: 18px;
-        padding: 14px;
-        border-radius: 12px;
-        background: #f5f5f5;
-        font-size: 13px;
-        line-height: 1.5;
-    }
 </style>
 
 
@@ -193,43 +298,81 @@
 
 
 <!-- LOGO -->
+
 <div class="logo">
-    <img src="Anneciel Logo Web.png" alt="Logo Anneciel">
+
+    <img
+        src="Anneciel Logo Web.png"
+        alt="Logo Anneciel">
+
 </div>
 
-<h1>Anneciel</h1>
+
+<!-- TITRE -->
+
+<h1>
+
+    ANNECIEL
+
+</h1>
+
+
+<!-- DESCRIPTION -->
 
 <p class="description">
+
     Association étudiante de Polytech Annecy-Chambéry
+
 </p>
 
 
 <!-- MESSAGE INSTAGRAM -->
+
 <div id="instagramWarning">
 
     <div class="warningTitle">
+
         🌐 Vous êtes sur Instagram
+
     </div>
 
     <p>
+
         Pour ouvrir les inscriptions et la présentation correctement,
         nous vous recommandons d'ouvrir cette page dans votre navigateur.
+
     </p>
 
     <div id="androidInstructions">
 
         <ol class="steps">
-            <li>Appuyez sur <strong>⋮</strong> en haut à droite.</li>
-            <li>Sélectionnez <strong>Ouvrir dans le navigateur</strong>.</li>
+
+            <li>
+                Appuyez sur <strong>⋮</strong> en haut à droite.
+            </li>
+
+            <li>
+                Sélectionnez <strong>Ouvrir dans le navigateur</strong>.
+            </li>
+
         </ol>
 
     </div>
 
+
     <div id="iphoneInstructions">
 
         <ol class="steps">
-            <li>Appuyez sur <strong>⋯</strong> ou le bouton de partage.</li>
-            <li>Sélectionnez <strong>Ouvrir dans le navigateur</strong> ou <strong>Ouvrir dans Safari</strong>.</li>
+
+            <li>
+                Appuyez sur <strong>⋯</strong> ou le bouton de partage.
+            </li>
+
+            <li>
+                Sélectionnez <strong>Ouvrir dans le navigateur</strong>
+                ou <strong>Ouvrir dans Safari</strong>.
+            </li>
+
         </ol>
 
     </div>
@@ -238,51 +381,83 @@
 
 
 <!-- BOUTONS -->
+
 <div class="links">
 
+
     <!-- INSCRIPTION -->
+
     <a
         class="link"
         href="https://docs.google.com/forms/d/1XjCSVkBkY0Sz0ya7bENIT0Yz8oHk_K9AjLOkpabSZYs/viewform">
 
-        <span class="icon">📝</span>
+        <span class="icon">
+            📝
+        </span>
+
         Inscription adhérents
 
     </a>
 
+
     <!-- PRÉSENTATION -->
+
     <a
         class="link"
         href="https://canva.link/nymqvmemnlndk6r">
 
-        <span class="icon">📊</span>
+        <span class="icon">
+            📊
+        </span>
+
         Présentation Anneciel
 
     </a>
 
-    <!-- TRAILER -->
-    <a class="link" href="https://www.youtube.com/watch?v=pwgTI2fHBiM" target="_blank" rel="noopener noreferrer">
 
-    <span class="icon">🎬</span>
-    Trailer
+    <!-- TRAILER -->
+
+    <a
+        class="link"
+        href="https://www.youtube.com/watch?v=pwgTI2fHBiM"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <span class="icon">
+            🎬
+        </span>
+
+        Trailer
 
     </a>
 
+
     <!-- INSTAGRAM -->
+
     <a
         class="link"
-        href="https://www.instagram.com/anneciel_polytech/">
+        href="https://www.instagram.com/anneciel_polytech/"
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <span class="icon">📸</span>
+        <span class="icon">
+            📸
+        </span>
+
         Instagram Anneciel
 
     </a>
 
+
 </div>
 
 
+<!-- FOOTER -->
+
 <div class="footer">
+
     © Anneciel
+
 </div>
 
 
@@ -290,39 +465,70 @@
 
 <script>
 
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const ua =
+        navigator.userAgent ||
+        navigator.vendor ||
+        window.opera;
 
-    // Détection Instagram
+
+    /* Détection Instagram */
+
     const isInstagram =
         ua.includes("Instagram") ||
         ua.includes("FBAN") ||
         ua.includes("FBAV");
 
-    // Détection Android
-    const isAndroid = /Android/i.test(ua);
 
-    // Détection iPhone / iPad
+    /* Détection Android */
+
+    const isAndroid =
+        /Android/i.test(ua);
+
+
+    /* Détection iPhone / iPad */
+
     const isIOS =
         /iPhone|iPad|iPod/i.test(ua) ||
-        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        (
+            navigator.platform === "MacIntel" &&
+            navigator.maxTouchPoints > 1
+        );
 
+
+    /* Affichage du message Instagram */
 
     if (isInstagram) {
 
-        document.getElementById("instagramWarning").style.display = "block";
+        document
+            .getElementById("instagramWarning")
+            .style.display = "block";
+
 
         if (isAndroid) {
 
-            document.getElementById("iphoneInstructions").style.display = "none";
+            document
+                .getElementById("iphoneInstructions")
+                .style.display = "none";
 
-        } else if (isIOS) {
+        }
 
-            document.getElementById("androidInstructions").style.display = "none";
+        else if (isIOS) {
 
-        } else {
+            document
+                .getElementById("androidInstructions")
+                .style.display = "none";
 
-            document.getElementById("androidInstructions").style.display = "none";
-            document.getElementById("iphoneInstructions").style.display = "none";
+        }
+
+        else {
+
+            document
+                .getElementById("androidInstructions")
+                .style.display = "none";
+
+            document
+                .getElementById("iphoneInstructions")
+                .style.display = "none";
 
         }
 
