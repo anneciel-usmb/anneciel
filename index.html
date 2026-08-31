@@ -71,8 +71,8 @@
        ========================================= */
 
     .logo {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
 
         margin: 0 auto 18px;
     }
@@ -100,7 +100,7 @@
         letter-spacing: 1px;
         line-height: 0.9;
     }
-    }
+
 
 
     /* =========================================
@@ -134,60 +134,104 @@
     }
 
     .link {
-        display: flex;
+    position: relative;
 
-        align-items: center;
-        justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        min-height: 58px;
+    min-height: 58px;
+    padding: 15px 20px;
 
-        padding: 15px 20px;
+    border-radius: 16px;
 
-        border-radius: 16px;
+    background: #d14288;
 
-        background: #d14288;
+    color: white;
 
-        color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
 
-        text-decoration: none;
+    text-decoration: none;
 
-        font-family: 'Poppins', sans-serif;
+    cursor: pointer;
 
-        font-size: 16px;
+    overflow: hidden;
 
-        font-weight: 600;
+    /* Ombre extérieure */
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.10),
+        inset 0 1px 1px rgba(255, 255, 255, 0.18);
 
-        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
 
-        cursor: pointer;
+    /* =========================================
+    BORDURE / DÉGRADÉ PREMIUM
+    ========================================= */
 
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
+    .link::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    padding: 4px;
+
+    background: linear-gradient(
+        135deg,
+        #ae2b69 0%,
+        #c03878 18%,
+        #d14288 38%,
+        #db4b91 50%,
+        #d14288 62%,
+        #c03878 82%,
+        #ae2b69 100%
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    pointer-events: none;
     }
 
 
-    /* Grossissement au survol PC */
+    /* =========================================
+    SURVOL PC
+    ========================================= */
 
     @media (hover: hover) {
 
-        .link:hover {
+    .link:hover {
 
-            transform: scale(1.035);
+        transform: scale(1.035);
 
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
+        box-shadow:
+            0 8px 22px rgba(0, 0, 0, 0.14),
+            inset 0 1px 2px rgba(255, 255, 255, 0.22);
 
     }
+    }
 
-
-    /* Effet au clic */
+    /* =========================================
+    CLIC / TACTILE
+    ========================================= */
 
     .link:active {
 
-        transform: scale(0.97);
-
+    transform: scale(0.97);
     }
+
 
 
     /* =========================================
@@ -396,6 +440,21 @@
 
     </a>
 
+    <!-- MAIL -->
+
+    <a
+        class="link"
+        href="mailto:anneciel.usmb@gmail.com"
+        onclick="openMail(event)">
+
+        <span class="icon">
+            ✉️
+        </span>
+
+        Mail
+
+    </a>
+
 
     <!-- PRÉSENTATION -->
 
@@ -531,7 +590,47 @@
 
     }
 
-</script>
+function openMail(event) {
 
+    event.preventDefault();
+
+    const email = "anneciel.usmb@gmail.com";
+
+    // Android
+    if (/Android/i.test(navigator.userAgent)) {
+
+        // Tentative d'ouverture de Gmail
+        window.location.href =
+            "intent://compose?to=" +
+            encodeURIComponent(email) +
+            "#Intent;" +
+            "scheme=mailto;" +
+            "package=com.google.android.gm;" +
+            "end";
+
+        // Secours après 1 seconde
+        setTimeout(function () {
+            window.location.href =
+                "mailto:" + email;
+        }, 1000);
+
+        return;
+    }
+
+    // iPhone / iPad
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+
+        window.location.href =
+            "mailto:" + email;
+
+        return;
+    }
+
+    // PC
+    window.location.href =
+        "mailto:" + email;
+
+}
+</script>
 </body>
 </html>
